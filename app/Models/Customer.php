@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Agent extends Model
+class Customer extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Agent extends Model
      *
      * @var string
      */
-    protected $table = 'agent';
+    protected $table = 'customer';
 
     protected $guarded = ['updated_at'];
 }
