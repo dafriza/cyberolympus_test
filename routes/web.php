@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('login', [AuthController::class, 'index'])->name('login.index');
+Route::get('login', [AuthController::class, 'index'])->middleware(['isLogged'])->name('login.index');
+
+Route::get('dashboard', [DashboardController::class , 'index'])->middleware(['can:superadmin-access', 'auth'])->name('dashboard.index');
