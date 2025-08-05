@@ -47,6 +47,7 @@
   </head>
   <!--end::Head-->
   <!--begin::Body-->
+  @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
   <body class="login-page bg-body-secondary">
     <div class="login-box">
       <div class="login-logo">
@@ -56,13 +57,14 @@
       <div class="card">
         <div class="card-body login-card-body">
           <p class="login-box-msg">Sign in to start your session</p>
-          <form action="../index3.html" method="post">
+          <form action="{{ route('auth.authenticate') }}" method="post">
+            @csrf
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Email" />
+              <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email', '') }}" required/>
               <div class="input-group-text"><span class="bi bi-envelope"></span></div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Password" />
+              <input type="password" class="form-control" placeholder="Password" name="password" required />
               <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
             </div>
             <!--begin::Row-->

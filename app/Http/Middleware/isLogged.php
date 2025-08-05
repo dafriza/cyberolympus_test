@@ -16,7 +16,7 @@ class isLogged
     public function handle(Request $request, Closure $next): Response
     {
         if(auth()->check()) {
-            return redirect()->back()->withErrors('You had logged in');
+            return redirect()->back()->with('errorss', 'You had logged in');
         }
         
         return $next($request);
